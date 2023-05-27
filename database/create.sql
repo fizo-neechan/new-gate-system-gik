@@ -27,17 +27,17 @@ CREATE TABLE info (
 );
 
 CREATE TABLE login (
-  username character varying(50),
+  username primary key character varying(50),
   password character varying(50)
 );
 
 CREATE TABLE regnobarcode (
-  RegNo integer NOT NULL,
-  BarCode character varying(20) NOT NULL
+  RegNo integer primary key NOT NULL,
+  BarCode character varying(20) unique NOT NULL
 );
 
 CREATE TABLE visitors_log (
-  ID integer NOT NULL,
+  ID serial primary key NOT NULL,
   Name character varying(30) NOT NULL,
   Cnic character varying(20) NOT NULL,
   Date date NOT NULL,
