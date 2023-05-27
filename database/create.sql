@@ -45,3 +45,8 @@ CREATE TABLE visitors_log (
   Vehicle_no character varying(10) NOT NULL,
   flag character varying(3) NOT NULL
 );
+
+
+-- Alter the login table to change the character limit of the password column
+ALTER TABLE login
+  ALTER COLUMN password TYPE character varying(120);
