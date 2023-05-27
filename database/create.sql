@@ -1,15 +1,5 @@
-
-CREATE TABLE dailylog (
-  RegNo integer NOT NULL,
-  Name character varying(30) NOT NULL,
-  Date date NOT NULL,
-  "Time" time without time zone NOT NULL,
-  Vehicle_no character varying(10) NOT NULL,
-  flag character varying(3) NOT NULL
-);
-
 CREATE TABLE info (
-  RegNo integer NOT NULL,
+  RegNo integer primary key NOT NULL,
   PictureLink character varying(100) NOT NULL,
   Name character varying(50) NOT NULL,
   FatherName character varying(50) NOT NULL,
@@ -26,6 +16,18 @@ CREATE TABLE info (
   Vehicle_no character varying(10) NOT NULL
 );
 
+CREATE TABLE dailylog (
+  RegNo integer NOT NULL,
+  "Time" date NOT NULL,
+  Vehicle_no character varying(10),
+  flag character varying(3) NOT NULL,
+	
+	constraint fk_student_data
+	foreign key (RegNo)
+	references info(RegNo)
+	on delete set null
+);
+
 CREATE TABLE login (
   username character varying(50),
   password character varying(50)
@@ -33,15 +35,19 @@ CREATE TABLE login (
 
 CREATE TABLE regnobarcode (
   RegNo integer NOT NULL,
-  BarCode character varying(20) NOT NULL
+  BarCode character varying(20) NOT NULL,
+	
+	constraint fk_barcode_student
+	foreign key (RegNo)
+	references info(RegNo)
+	on delete cascade
 );
 
 CREATE TABLE visitors_log (
   ID integer NOT NULL,
   Name character varying(30) NOT NULL,
   Cnic character varying(20) NOT NULL,
-  Date date NOT NULL,
-  "Time" time without time zone NOT NULL,
-  Vehicle_no character varying(10) NOT NULL,
+  "Time" date NOT NULL,
+  Vehicle_no character varying(10),
   flag character varying(3) NOT NULL
 );
