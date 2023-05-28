@@ -29,7 +29,7 @@ CREATE TABLE dailylog (
 );
 
 CREATE TABLE login (
-  username character varying(50),
+  username primary key character varying(50),
   password character varying(50)
 );
 
@@ -44,7 +44,7 @@ CREATE TABLE regnobarcode (
 );
 
 CREATE TABLE visitors_log (
-  ID integer NOT NULL,
+  ID serial primary key NOT NULL,
   Name character varying(30) NOT NULL,
   Cnic character varying(20) NOT NULL,
   "Time" date NOT NULL,

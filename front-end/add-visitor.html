@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+
+main .container {
+  width: 40%;
+  margin: 30px auto;
+  box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 2.6px;
+}
+
+.tabs {
+  display: flex;
+  list-style: none;
+}
+.tabs li {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background-color: #f6f6f6;
+  padding: 15px 35px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  font-size: 17px;
+}
+.tabs li.active,
+.tabs li:hover {
+  background-color: #fff;
+  border: none;
+  border-top: 4px solid #1db9c3;
+  transition: 0.1s;
+}
+
+.container .content .profile,
+.container .content .settings,
+.container .content .about {
+  padding: 40px 25px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container .content > div:not(.visible) {
+  display: none;
+}
+.container .content h3 {
+  margin: 15px 0;
+}
+.container .content .profile img {
+  border-radius: 75px;
+  margin-bottom: 25px;
+}
+.container .content .profile table {
+  margin-bottom: 35px;
+  width: 80%;
+}
+.container .content table td {
+  padding: 7px 0;
+  font-weight: 300;
+  width: 180px;
+}
+.container .content .profile table td.title {
+  font-weight: bold;
+}
+.container .content .profile table td:not(.title) {
+  text-align: center;
+}
+.container .content .settings input:not([type="submit"]):not([type="reset"]) {
+  padding: 3px 10px;
+  outline: none;
+  width: 100%;
+}
+.container .content hr {
+  width: 100%;
+  margin: 25px 0 25px;
+  height: 2px;
+  background-color: #1db9c3;
+}
+.container button,
+input[type="submit"],
+input[type="reset"] {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 7px;
+  outline: none;
+  cursor: pointer;
+}
+.container button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  letter-spacing: 1.1px;
+  transition: 0.4s;
+}
+.container .primary {
+  background-color: #00a19d;
+}
+.container .danger {
+  background-color: #b61919;
+  color: #fff;
+}
+.container .secondary {
+  background-color: #ddd;
+}
+.container .content .settings td {
+  padding: 7px 0;
+}
+.container .content p {
+  padding: 50px;
+  line-height: 1.5;
+  text-align: center;
+  font-size: 18px;
+}
+
+</style>
+<body>
+  <section class="side-panel">
+    <header>
+      <div class="title">
+        <span>Tirix</span>
+      </div>
+    </header>
+    <nav>
+      <ul>
+        <li>
+          <a href="#" title="Dashboard">
+            <span>Daily Log</span>
+            <i class="fa fa-compass"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#" title="Items">
+            <span>User Info</span>
+            <i class="fa fa-list"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#" title="Categories">
+            <span>Visitors</span>
+            <i class="fa fa-tags"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#" title="Settings">
+            <span>Print Card</span>
+            <i class="fa fa-sliders"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#" title="Contact">
+            <span>Add user</span>
+            <i class="fa fa-envelope"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </section>
+
+      
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer="" src="index.js"></script>
+    <title>Gate UwU</title>
+  </head>
+  <body>
+    <section class="side-panel">
+      <header>
+        <div class="title">
+          <span>Tirix</span>
+        </div>
+      </header>
+      <nav>
+        <ul>
+          <li>
+            <a href="#" title="Dashboard">
+              <span>Daily Log</span>
+              <i class="fa fa-compass"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" title="Items">
+              <span>User Info</span>
+              <i class="fa fa-list"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" title="Categories">
+              <span>Visitors</span>
+              <i class="fa fa-tags"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" title="Settings">
+              <span>Print Card</span>
+              <i class="fa fa-sliders"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" title="Contact">
+              <span>Add user</span>
+              <i class="fa fa-envelope"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+    <section class="head-panel">
+      <header>
+        <div class="top tools">
+          <div class="container">
+            <div class="button-box">
+              <button id="toggle-menu">
+                <svg
+                  viewBox="0 0 53 53"
+                  x="0px"
+                  xmlns="http://www.w3.org/2000/svg"
+                  y="0px"
+                >
+                  <path
+                    d="M2,13.5h49c1.104,0,2-0.896,2-2s-0.896-2-2-2H2c-1.104,0-2,0.896-2,2S0.896,13.5,2,13.5z"
+                  ></path>
+                  <path
+                    d="M2,28.5h49c1.104,0,2-0.896,2-2s-0.896-2-2-2H2c-1.104,0-2,0.896-2,2S0.896,28.5,2,28.5z"
+                  ></path>
+                  <path
+                    d="M2,43.5h49c1.104,0,2-0.896,2-2s-0.896-2-2-2H2c-1.104,0-2,0.896-2,2S0.896,43.5,2,43.5z"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <div class="search-bar">
+              <input placeholder="Search" type="text" />
+            </div>
+          </div>
+        </div>
+        <div class="bottom notification">
+          <div class="container">
+            <div class="profile-wrap">
+              <div class="avatar"></div>
+              <div class="user-info">
+                <div class="name">Czvpka</div>
+                <div class="rank">admin</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div class="container">
+          <ul class="tabs">
+            <li class="active" id="profileTab" data-content="profile">Add User</li>
+          </ul>
+          <div class="content">
+            <div class="profile visible">
+              <h3>Add Information</h3>
+              <form action="" class="modifyInfo">
+                <table>
+                  <tr>
+                    <td class="title">Name :</td>
+                    <td><input type="text" name="name" /></td>
+                  </tr>
+                  <tr>
+                    <td class="title">CNIC :</td>
+                    <td><input type="text" name="lastName" /></td>
+                  </tr>
+                  <tr>
+                    <td class="title">Vehicle Number :</td>
+                    <td><input type="date" name="dateBirth" /></td>
+                  </tr>
+                  <tr>
+                    <td class="title">FLAG :</td>
+                    <td><input type="text" name="city" /></td>
+                  </tr>
+                </table>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+    </section>
+
+    <script>
+
+    </script>
+  </body>
+</html>
