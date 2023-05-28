@@ -18,7 +18,7 @@ CREATE TABLE info (
 
 CREATE TABLE dailylog (
   RegNo integer NOT NULL,
-  "Time" date NOT NULL,
+  "Time" date NOT NULL default now(),
   Vehicle_no character varying(10),
   flag character varying(3) NOT NULL,
 	
@@ -29,7 +29,7 @@ CREATE TABLE dailylog (
 );
 
 CREATE TABLE login (
-  username primary key character varying(50),
+  username character varying(50),
   password character varying(50)
 );
 
@@ -44,10 +44,10 @@ CREATE TABLE regnobarcode (
 );
 
 CREATE TABLE visitors_log (
-  ID serial primary key NOT NULL,
+  ID integer primary key NOT NULL,
   Name character varying(30) NOT NULL,
   Cnic character varying(20) NOT NULL,
-  "Time" date NOT NULL,
+  "Time" date NOT NULL default now(),
   Vehicle_no character varying(10),
   flag character varying(3) NOT NULL
 );
@@ -62,8 +62,19 @@ CREATE TABLE vehicles (
 	references info(RegNo)
 	on delete cascade,
 
-	constraint fk_vehicle_visitor
-	foreign key (cnic_no)
-	references visitors_log(Cnic)
-	on delete cascade
+-- Alter the login table to change the character limit of the password column
+ALTER TABLE login
+  ALTER COLUMN password TYPE character varying(120);
+
+
+create table car_log (
+    Vehicle_no varchar(10) primary key,
+    driver_reg int references info(RegNo),
+    driver_visitor_id int references visitors_log(ID),
+    flag varchar(3) not null,
+    vehicle_under varchar(10) not null,
+    "time" date not null default now()
 );
+
+create user gikiadmin with encrypted password 'giki-admin-123';
+alter user admin with login superuser;

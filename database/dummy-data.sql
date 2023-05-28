@@ -1,69 +1,74 @@
-INSERT INTO dailylog (RegNo, Name, Date, "Time", Vehicle_no, flag)
-VALUES
-  (1, 'John Doe', '2023-05-01', '08:00:00', 'ABC123', 'Yes'),
-  (2, 'Jane Smith', '2023-05-02', '09:30:00', 'XYZ987', 'No'),
-  (3, 'Michael Johnson', '2023-05-03', '14:15:00', 'DEF456', 'Yes'),
-  (4, 'Emily Davis', '2023-05-04', '11:45:00', 'GHI789', 'Yes'),
-  (5, 'Robert Wilson', '2023-05-05', '16:20:00', 'JKL321', 'No'),
-  (6, 'Olivia Brown', '2023-05-06', '10:10:00', 'MNO654', 'Yes'),
-  (7, 'David Taylor', '2023-05-07', '13:30:00', 'PQR987', 'No'),
-  (8, 'Sophia Clark', '2023-05-08', '15:45:00', 'STU654', 'Yes'),
-  (9, 'Daniel Harris', '2023-05-09', '12:00:00', 'VWX321', 'Yes'),
-  (10, 'Mia Martinez', '2023-05-10', '17:00:00', 'YZA987', 'No');
-
+-- Dummy data for the info table
 INSERT INTO info (RegNo, PictureLink, Name, FatherName, NIC, Designation, Faculty_Dept, DOB, PermanentAddress, Contact_number, EmergencyContactName, EmergencyContactNumber, IdentificationMark, BloodGroup, Vehicle_no)
 VALUES
-  (1, 'https://example.com/pic1.jpg', 'John Doe', 'Robert Doe', '12345678901234567', 'Manager', 'Administration', '1990-01-01', '123 Main Street, City', '1234567890', 'Jane Doe', '0987654321', 'Mole on left cheek', 'A+', 'ABC123'),
-  (2, 'https://example.com/pic2.jpg', 'Jane Smith', 'Michael Smith', '23456789012345678', 'Engineer', 'Engineering', '1992-03-15', '456 Elm Street, City', '9876543210', 'John Smith', '0123456789', 'Scars on right hand', 'B-', 'XYZ987'),
-  (3, 'https://example.com/pic3.jpg', 'Michael Johnson', 'David Johnson', '34567890123456789', 'Supervisor', 'Operations', '1985-07-20', '789 Oak Street, City', '4567890123', 'Sarah Johnson', '9876543210', 'Tattoo on neck', 'O+', 'DEF456'),
-  (4, 'https://example.com/pic4.jpg', 'Emily Davis', 'William Davis', '45678901234567890', 'Analyst', 'Finance', '1988-12-10', '321 Pine Street, City', '7890123456', 'Jessica Davis', '0123456789', 'None', 'AB-', 'GHI789'),
-  (5, 'https://example.com/pic5.jpg', 'Robert Wilson', 'Christopher Wilson', '56789012345678901', 'Developer', 'IT', '1993-05-25', '654 Cedar Street, City', '5678901234', 'Emily Wilson', '9876543210', 'Birthmark on forehead', 'A-', 'JKL321'),
-  (6, 'https://example.com/pic6.jpg', 'Olivia Brown', 'Daniel Brown', '67890123456789012', 'Coordinator', 'HR', '1991-09-05', '987 Maple Street, City', '4567890123', 'Sophia Brown', '0123456789', 'None', 'B+', 'MNO654'),
-  (7, 'https://example.com/pic7.jpg', 'David Taylor', 'James Taylor', '78901234567890123', 'Technician', 'Maintenance', '1987-04-18', '147 Walnut Street, City', '7890123456', 'Isabella Taylor', '9876543210', 'Mole on right arm', 'AB+', 'PQR987'),
-  (8, 'https://example.com/pic8.jpg', 'Sophia Clark', 'Matthew Clark', '89012345678901234', 'Researcher', 'Research', '1989-11-30', '369 Oak Street, City', '5678901234', 'Oliver Clark', '0123456789', 'Scars on left leg', 'O-', 'STU654'),
-  (9, 'https://example.com/pic9.jpg', 'Daniel Harris', 'William Harris', '90123456789012345', 'Assistant', 'Administration', '1994-08-12', '741 Elm Street, City', '4567890123', 'Charlotte Harris', '9876543210', 'Tattoo on left arm', 'A+', 'VWX321'),
-  (10, 'https://example.com/pic10.jpg', 'Mia Martinez', 'Joseph Martinez', '01234567890123456', 'Coordinator', 'Events', '1996-02-28', '963 Pine Street, City', '7890123456', 'Emily Martinez', '0123456789', 'Birthmark on neck', 'B-', 'YZA987');
+  (1, 'picture1.jpg', 'John Doe', 'Father Doe', '12345678901234567', 'Manager', 'Faculty of Engineering', '1990-01-01', '123 Main St', '1234567890', 'Emergency Contact 1', 'Emergency Contact Number 1', 'Scar on right hand', 'O+', 'ABC123'),
+  (2, 'picture2.jpg', 'Jane Smith', 'Father Smith', '98765432109876543', 'Engineer', 'Faculty of Science', '1995-05-05', '456 Elm St', '9876543210', 'Emergency Contact 2', 'Emergency Contact Number 2', 'Birthmark on neck', 'A-', 'XYZ456'),
+  -- Add more entries here...
+  (3, 'picture3.jpg', 'Robert Johnson', 'Father Johnson', '45678901234567890', 'Doctor', 'Faculty of Medicine', '1985-03-15', '789 Oak St', '4567890123', 'Emergency Contact 3', 'Emergency Contact Number 3', 'Tattoo on arm', 'B+', 'DEF789'),
+  (4, 'picture4.jpg', 'Emily Davis', 'Father Davis', '90123456789012345', 'Teacher', 'Faculty of Education', '1988-09-20', '321 Pine St', '9012345678', 'Emergency Contact 4', 'Emergency Contact Number 4', 'Mole on cheek', 'AB+', 'GHI012'),
+  (5, 'picture5.jpg', 'Michael Wilson', 'Father Wilson', '23456789012345678', 'Manager', 'Faculty of Business', '1992-07-10', '654 Cedar St', '2345678901', 'Emergency Contact 5', 'Emergency Contact Number 5', 'Scars on back', 'O-', 'JKL345'),
+  (6, 'picture6.jpg', 'Sarah Thompson', 'Father Thompson', '67890123456789012', 'Engineer', 'Faculty of Engineering', '1993-11-25', '987 Maple St', '6789012345', 'Emergency Contact 6', 'Emergency Contact Number 6', 'Birthmark on leg', 'A+', 'MNO678'),
+  (7, 'picture7.jpg', 'William Clark', 'Father Clark', '12345678901234567', 'Teacher', 'Faculty of Education', '1987-02-28', '789 Oak St', '1234567890', 'Emergency Contact 7', 'Emergency Contact Number 7', 'Tattoo on arm', 'AB-', 'PQR901'),
+  (8, 'picture8.jpg', 'Olivia Allen', 'Father Allen', '45678901234567890', 'Doctor', 'Faculty of Medicine', '1990-06-12', '321 Pine St', '4567890123', 'Emergency Contact 8', 'Emergency Contact Number 8', 'Mole on cheek', 'B-', 'STU234'),
+  (9, 'picture9.jpg', 'James Turner', 'Father Turner', '90123456789012345', 'Engineer', 'Faculty of Engineering', '1994-08-03', '654 Cedar St', '9012345678', 'Emergency Contact 9', 'Emergency Contact Number 9', 'Scars on back', 'AB+', 'VWX567'),
+  (10, 'picture10.jpg', 'Sophia Baker', 'Father Baker', '23456789012345678', 'Manager', 'Faculty of Business', '1989-12-07', '987 Maple St', '2345678901', 'Emergency Contact 10', 'Emergency Contact Number 10', 'Birthmark on leg', 'O+', 'YZA890');
 
-INSERT INTO regnobarcode (RegNo, BarCode)
+-- Dummy data for the dailylog table
+INSERT INTO dailylog (RegNo, "Time", Vehicle_no, flag)
 VALUES
-  (1, 'ABC123456'),
-  (2, 'DEF234567'),
-  (3, 'GHI345678'),
-  (4, 'JKL456789'),
-  (5, 'MNO567890'),
-  (6, 'PQR678901'),
-  (7, 'STU789012'),
-  (8, 'VWX890123'),
-  (9, 'YZA901234'),
-  (10, 'BCD012345');
+  (1, '2022-01-01', 'ABC123', 'IN'),
+  (2, '2022-01-02', 'XYZ456', 'OUT'),
+  -- Add more entries here...
+  (3, '2022-01-03', 'DEF789', 'IN'),
+  (4, '2022-01-04', 'GHI012', 'OUT'),
+  (5, '2022-01-05', 'JKL345', 'IN'),
+  (6, '2022-01-06', 'MNO678', 'OUT'),
+  (7, '2022-01-07', 'PQR901', 'IN'),
+  (8, '2022-01-08', 'STU234', 'OUT'),
+  (9, '2022-01-09', 'VWX567', 'IN'),
+  (10, '2022-01-10', 'YZA890', 'OUT');
 
--- Enable the pgcrypto extension if not already enabled
-CREATE EXTENSION IF NOT EXISTS pgcrypto;
-
--- Insert the records into the login table with bcrypt-hashed passwords
+-- Dummy data for the login table
 INSERT INTO login (username, password)
 VALUES
-  ('user1', crypt('password1', gen_salt('bf'))),
-  ('user2', crypt('password2', gen_salt('bf'))),
-  ('user3', crypt('password3', gen_salt('bf'))),
-  ('user4', crypt('password4', gen_salt('bf'))),
-  ('user5', crypt('password5', gen_salt('bf'))),
-  ('user6', crypt('password6', gen_salt('bf'))),
-  ('user7', crypt('password7', gen_salt('bf'))),
-  ('user8', crypt('password8', gen_salt('bf'))),
-  ('user9', crypt('password9', gen_salt('bf'))),
-  ('user10', crypt('password10', gen_salt('bf')));
+  ('user1', 'password1'),
+  ('user2', 'password2'),
+  -- Add more entries here...
+  ('user3', 'password3'),
+  ('user4', 'password4'),
+  ('user5', 'password5'),
+  ('user6', 'password6'),
+  ('user7', 'password7'),
+  ('user8', 'password8'),
+  ('user9', 'password9'),
+  ('user10', 'password10');
 
--- ta into the visitors_log table
-INSERT INTO visitors_log (ID, Name, Cnic, Date, "Time", Vehicle_no, flag)
+-- Dummy data for the regnobarcode table
+INSERT INTO regnobarcode (RegNo, BarCode)
 VALUES
-  (1, 'Visitor 1', '12345678901234567', '2023-05-01', '10:00:00', 'ABC123', 'Yes'),
-  (2, 'Visitor 2', '23456789012345678', '2023-05-02', '11:30:00', 'XYZ987', 'No'),
-  (3, 'Visitor 3', '34567890123456789', '2023-05-03', '14:45:00', 'DEF456', 'Yes'),
-  (4, 'Visitor 4', '45678901234567890', '2023-05-04', '12:15:00', 'GHI789', 'Yes'),
-  (5, 'Visitor 5', '56789012345678901', '2023-05-05', '16:30:00', 'JKL321', 'No'),
-  (6, 'Visitor 6', '67890123456789012', '2023-05-06', '13:20:00', 'MNO654', 'Yes'),
-  (7, 'Visitor 7', '78901234567890123', '2023-05-07', '15:45:00', 'PQR987', 'No'),
-  (8, 'Visitor 8', '89012345678901234', '2023-05-08', '17:00:00', 'STU654', 'Yes'),
-  (9, 'Visitor 9', '90123456789012345', '2023-05-09', '11:30:00', 'VWX321', 'Yes'),
-  (10, 'Visitor 10', '01234567890123456', '2023-05-10', '14:00:00', 'YZA987', 'No');
+  (1, '1234567890'),
+  (2, '2345678901'),
+  -- Add more entries here...
+  (3, '3456789012'),
+  (4, '4567890123'),
+  (5, '5678901234'),
+  (6, '6789012345'),
+  (7, '7890123456'),
+  (8, '8901234567'),
+  (9, '9012345678'),
+  (10, '0123456789');
+
+-- Dummy data for the visitors_log table
+INSERT INTO visitors_log (ID, Name, Cnic, "Time", Vehicle_no, flag)
+VALUES
+  (1, 'Visitor 1', '12345', '2022-01-01', 'ABC123', 'IN'),
+  (2, 'Visitor 2', '23456', '2022-01-02', 'XYZ456', 'OUT'),
+  -- Add more entries here...
+  (3, 'Visitor 3', '34567', '2022-01-03', 'DEF789', 'IN'),
+  (4, 'Visitor 4', '45678', '2022-01-04', 'GHI012', 'OUT'),
+  (5, 'Visitor 5', '56789', '2022-01-05', 'JKL345', 'IN'),
+  (6, 'Visitor 6', '67890', '2022-01-06', 'MNO678', 'OUT'),
+  (7, 'Visitor 7', '78901', '2022-01-07', 'PQR901', 'IN'),
+  (8, 'Visitor 8', '89012', '2022-01-08', 'STU234', 'OUT'),
+  (9, 'Visitor 9', '90123', '2022-01-09', 'VWX567', 'IN'),
+  (10, 'Visitor 10', '01234', '2022-01-10', 'YZA890', 'OUT');
