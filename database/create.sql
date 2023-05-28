@@ -1,15 +1,5 @@
-
-CREATE TABLE dailylog (
-  RegNo integer NOT NULL,
-  Name character varying(30) NOT NULL,
-  Date date NOT NULL,
-  "Time" time without time zone NOT NULL,
-  Vehicle_no character varying(10) NOT NULL,
-  flag character varying(3) NOT NULL
-);
-
 CREATE TABLE info (
-  RegNo integer NOT NULL,
+  RegNo integer primary key NOT NULL,
   PictureLink character varying(100) NOT NULL,
   Name character varying(50) NOT NULL,
   FatherName character varying(50) NOT NULL,
@@ -26,23 +16,39 @@ CREATE TABLE info (
   Vehicle_no character varying(10) NOT NULL
 );
 
+CREATE TABLE dailylog (
+  RegNo integer NOT NULL,
+  "Time" date NOT NULL default now(),
+  Vehicle_no character varying(10),
+  flag character varying(3) NOT NULL,
+	
+	constraint fk_student_data
+	foreign key (RegNo)
+	references info(RegNo)
+	on delete set null
+);
+
 CREATE TABLE login (
-  username primary key character varying(50),
+  username character varying(50),
   password character varying(50)
 );
 
 CREATE TABLE regnobarcode (
-  RegNo integer primary key NOT NULL,
-  BarCode character varying(20) unique NOT NULL
+  RegNo integer NOT NULL,
+  BarCode character varying(20) NOT NULL,
+	
+	constraint fk_barcode_student
+	foreign key (RegNo)
+	references info(RegNo)
+	on delete cascade
 );
 
 CREATE TABLE visitors_log (
-  ID serial primary key NOT NULL,
+  ID integer primary key NOT NULL,
   Name character varying(30) NOT NULL,
   Cnic character varying(20) NOT NULL,
-  Date date NOT NULL,
-  "Time" time without time zone NOT NULL,
-  Vehicle_no character varying(10) NOT NULL,
+  "Time" date NOT NULL default now(),
+  Vehicle_no character varying(10),
   flag character varying(3) NOT NULL
 );
 
@@ -53,16 +59,13 @@ ALTER TABLE login
 
 
 create table car_log (
-    Vehicle_no primary key varchar(10),
-    driver_reg int,
-    driver_cnic int,
+    Vehicle_no varchar(10) primary key,
+    driver_reg int references info(RegNo),
+    driver_visitor_id int references visitors_log(ID),
     flag varchar(3) not null,
-    vehicle_under varchar(10) not null
-
-    constraint foreign key fk_vehicle_driver_reg
-    (driver_reg) references info(RegNo),
-
-    constraint foreign key fk_vehicle_driver_cnic
-    (driver_cnic) references visitors_log(Cnic)
+    vehicle_under varchar(10) not null,
+    "time" date not null default now()
 );
 
+create user gikiadmin with encrypted password 'giki-admin-123';
+alter user admin with login superuser;
