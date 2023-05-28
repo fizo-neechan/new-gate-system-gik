@@ -110,9 +110,23 @@
                 <p class="log__field--status">IN</p>
               </li>
             </ul>
-          </table>
+          </div>
         </section>
       </main>
     </section>
+
+<script>
+  fetch('/api/dailylog')
+  .then(response => response.json())
+  .then(data => {
+    // Handle the response data
+    console.log(data);
+  })
+  .catch(error => {
+    // Handle any errors
+    console.error('Error:', error);
+  });
+</script>
+
   </body>
 </html>
