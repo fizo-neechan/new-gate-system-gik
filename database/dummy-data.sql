@@ -67,3 +67,17 @@ VALUES
   (8, 'Visitor 8', '89012345678901234', '2023-05-08', '17:00:00', 'STU654', 'Yes'),
   (9, 'Visitor 9', '90123456789012345', '2023-05-09', '11:30:00', 'VWX321', 'Yes'),
   (10, 'Visitor 10', '01234567890123456', '2023-05-10', '14:00:00', 'YZA987', 'No');
+
+-- Insert dummy data into the car_log table
+INSERT INTO car_log (Vehicle_no, driver_reg, driver_cnic, flag, vehicle_under)
+VALUES
+  ('Vehicle1', 1, 1234567890123456, 'Yes', 'Vehicle1'),
+  ('Vehicle2', 2, 2345678901234567, 'No', 'Vehicle2'),
+  ('Vehicle3', 3, 3456789012345678, 'Yes', 'Vehicle3'),
+  ('Vehicle4', 4, 4567890123456789, 'Yes', 'Vehicle4'),
+  ('Vehicle5', 5, 5678901234567890, 'No', 'Vehicle5'),
+  ('Vehicle6', 6, 6789012345678901, 'Yes', 'Vehicle6'),
+  ('Vehicle7', 7, 7890123456789012, 'No', 'Vehicle7'),
+  ('Vehicle8', 8, 8901234567890123, 'Yes', 'Vehicle8'),
+  ('Vehicle9', 9, 9012345678901234, 'Yes', 'Vehicle9'),
+  ('Vehicle10', 10, 1234567890123456, 'No', 'Vehicle10');
