@@ -50,3 +50,19 @@ CREATE TABLE visitors_log (
 -- Alter the login table to change the character limit of the password column
 ALTER TABLE login
   ALTER COLUMN password TYPE character varying(120);
+
+
+create table car_log (
+    Vehicle_no primary key varchar(10),
+    driver_reg int,
+    driver_cnic int,
+    flag varchar(3) not null,
+    vehicle_under varchar(10) not null
+
+    constraint foreign key fk_vehicle_driver_reg
+    (driver_reg) references info(RegNo),
+
+    constraint foreign key fk_vehicle_driver_cnic
+    (driver_cnic) references visitors_log(Cnic)
+);
+
