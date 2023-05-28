@@ -51,3 +51,19 @@ CREATE TABLE visitors_log (
   Vehicle_no character varying(10),
   flag character varying(3) NOT NULL
 );
+
+CREATE TABLE vehicles (
+	vehicle_no varchar(10) primary key not null,
+	reg_no int not null,
+	cnic_no character varying(20) not null,
+	
+	constraint fk_vehicle_student
+	foreign key (reg_no)
+	references info(RegNo)
+	on delete cascade,
+
+	constraint fk_vehicle_visitor
+	foreign key (cnic_no)
+	references visitors_log(Cnic)
+	on delete cascade
+);
