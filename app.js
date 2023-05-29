@@ -83,6 +83,38 @@ app.get("/api/dailylog", async (req, res) => {
   }
 });
 
+
+app.get("/api/get_user", (req, res)=> {
+    const id = req.query.id;
+    const finalRows = []
+    pool.query("select * from info where RegNo=$1 or nic='$1'", [1], (err, result) => {
+        if(err) {
+            console.log("", err);
+        } else {
+            finalRows.push(result.rows);
+        }
+    })
+
+    pool.query("select * from visitors_log where nic='$1';", [1], (err, result) => {
+        if(err) {
+            console.log("", err);
+        } else {
+            finalRows.push(result.rows);
+        }
+    })
+
+    pool.query("select * from car_log where vehicle_no='$1'", [1], (err, result) => {
+        if(err) {
+            console.log("", err);
+        } else {
+            finalRows.push(result.rows);
+        }
+    })
+
+    res.send(finalRows);
+})
+
+
 // Start the server
 const port = 3000; // Replace with your desired port number
 app.listen(port, () => {
