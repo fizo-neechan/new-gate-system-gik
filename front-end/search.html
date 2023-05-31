@@ -132,8 +132,114 @@
                 </ul>
               </div>
             </div>
+            <div class = "modal">
+              <div class = "modal__content">
+                <div class="upper">
+                  <h2>Details</h2>
+                  <img src="tatta.png" alt="">
+                  <p style="font-size: 25px; padding: 2rem; font-weight: 400;">Profile</p>
+                </div>
+                <div class = "modal-flex">
+                  <div class = "left">
+                    <p>Name:</p>
+                  </div>
+                  <div class = "right">
+                    <p>Zaid Bin Muzammil</p>
+                  </div>
+                </div>
+                <div class = "modal-flex">
+                  <div class = "left">
+                    <p>Father's name:</p>
+                  </div>
+                  <div class = "right">
+                    <p>Muzammil Naveed</p>
+                  </div>
+                </div>
+                <div class = "modal-flex">
+                  <div class = "left">
+                    <p>Registration Num:</p>
+                  </div>
+                  <div class = "right">
+                    <p>2021718</p>
+                  </div>
+                </div>
+                <div class = "modal-flex">
+                  <div class = "left">
+                    <p>CNIC:</p>
+                  </div>
+                  <div class = "right">
+                    <p>1234567890123</p>
+                  </div>
+                </div>
+                <div class = "modal-flex">
+                  <div class = "left">
+                    <p>Faculty/Dept:</p>
+                  </div>
+                  <div class = "right">
+                    <p>FCSE/BCS</p>
+                  </div>
+                </div>
+                <div class = "modal-flex">
+                  <div class = "left">
+                    <p>DOB:</p>
+                  </div>
+                  <div class = "right">
+                    <p>01/01/2002</p>
+                  </div>
+                </div>
+                <div class = "modal-flex">
+                  <div class = "left">
+                    <p>Contact Number:</p>
+                  </div>
+                  <div class = "right">
+                    <p>0333-5988847</p>
+                  </div>
+                </div>
+                <div class = "modal-flex">
+                  <div class = "left">
+                    <p>Emergency Contact name:</p>
+                  </div>
+                  <div class = "right">
+                    <p>YOUR DAD</p>
+                  </div>
+                </div>
+                <div class = "modal-flex">
+                  <div class = "left">
+                    <p>Emergency Contact:</p>
+                  </div>
+                  <div class = "right">
+                    <p>0333-55555555</p>
+                  </div>
+                </div>
+                <div class = "modal-flex">
+                  <div class = "left">
+                    <p>Blood group:</p>
+                  </div>
+                  <div class = "right">
+                    <p>B-Positive</p>
+                  </div>
+                </div>
+                <button class = "modal-btn" onclick="">okay</button>
+              </div>
+            </div>
           </div>
         </section>
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            var searchResults = document.querySelectorAll('.search__result');
+            var modal = document.querySelector('.modal');
+          
+            searchResults.forEach(function(result) {
+              result.addEventListener('click', function() {
+                modal.classList.add('show');
+              });
+            });
+          
+            modal.addEventListener('click', function() {
+              modal.classList.remove('show');
+            });
+          });
+        </script>
       </main>
     </section>
   </body>
