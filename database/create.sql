@@ -18,7 +18,7 @@ CREATE TABLE info (
 
 CREATE TABLE dailylog (
   RegNo integer NOT NULL,
-  "Time" date NOT NULL default now(),
+  "Time" timestamp NOT NULL default now(),
   Vehicle_no character varying(10),
   flag character varying(3) NOT NULL,
 	
@@ -52,7 +52,16 @@ CREATE TABLE visitors_log (
   flag character varying(3) NOT NULL
 );
 
-
+CREATE TABLE vehicles (
+	vehicle_no varchar(10) primary key not null,
+	reg_no int not null,
+	cnic_no character varying(20) not null,
+	
+	constraint fk_vehicle_student
+	foreign key (reg_no)
+	references info(RegNo)
+	on delete cascade
+)
 -- Alter the login table to change the character limit of the password column
 ALTER TABLE login
   ALTER COLUMN password TYPE character varying(120);

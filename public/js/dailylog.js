@@ -1,0 +1,48 @@
+function makeRow(id, name, time, flag){
+
+    const date = new Date(time);
+    const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'};
+    const formattedDateTime = date.toLocaleString('en-US', options);
+
+    console.log(formattedDateTime);
+
+    const row = document.createElement("ul");
+    row.classList.add("log__row");
+    row.innerHTML = `
+    <li class="log__field">${id}</li>
+    <li class="log__field">${name}</li>
+    <li class="log__field">${formattedDateTime}</li>
+    <li class="log__field">
+      <!-- <input class="cbx hidden" type="checkbox" id="unchecked" />
+        <label class="lbl" for="unchecked"></label> -->
+        <p class="log__field--status">${flag}</p>
+      </li>
+    `;
+
+    return row;
+}
+
+const dailyLogBtn = document.getElementById("daily-log-btn");
+console.log(dailyLogBtn.innerHTML);
+dailyLogBtn.addEventListener("click", async () => {
+    const table = document.querySelector("#DailyLog .log__table");
+    console.log("here");
+    try {
+        const resp = await fetch(`/api/dailylog`, {
+          method: "GET",
+          headers: {
+            "Content-type": "application/json",
+          },
+        });
+
+        const data = await resp.json();
+        console.log(data);
+        data.forEach(i => {
+            table.appendChild(makeRow(i.id, i.name, i.time, i.flag));
+        });
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+dailyLogBtn.click();
