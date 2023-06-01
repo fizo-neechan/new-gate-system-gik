@@ -60,8 +60,8 @@ CREATE TABLE vehicles (
 	constraint fk_vehicle_student
 	foreign key (reg_no)
 	references info(RegNo)
-	on delete cascade,
-
+	on delete cascade
+)
 -- Alter the login table to change the character limit of the password column
 ALTER TABLE login
   ALTER COLUMN password TYPE character varying(120);
