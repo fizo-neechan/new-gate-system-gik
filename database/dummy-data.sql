@@ -29,19 +29,19 @@ VALUES
   (10, '0123456789');
 
 -- Dummy data for the visitors_log table
-INSERT INTO visitors_log (ID, Name, Cnic, "Time", Vehicle_no, flag)
+INSERT INTO visitors_log (ID, Name, Cnic, Vehicle_no, flag)
 VALUES
-  (1, 'Visitor 1', '12345', '2022-01-01', 'ABC123', 'IN'),
-  (2, 'Visitor 2', '23456', '2022-01-02', 'XYZ456', 'OUT'),
+  (1, 'Visitor 1', '12345', 'ABC123', 'IN'),
+  (2, 'Visitor 2', '23456', 'XYZ456', 'OUT'),
   -- Add more entries here...
-  (3, 'Visitor 3', '34567', '2022-01-03', 'DEF789', 'IN'),
-  (4, 'Visitor 4', '45678', '2022-01-04', 'GHI012', 'OUT'),
-  (5, 'Visitor 5', '56789', '2022-01-05', 'JKL345', 'IN'),
-  (6, 'Visitor 6', '67890', '2022-01-06', 'MNO678', 'OUT'),
-  (7, 'Visitor 7', '78901', '2022-01-07', 'PQR901', 'IN'),
-  (8, 'Visitor 8', '89012', '2022-01-08', 'STU234', 'OUT'),
-  (9, 'Visitor 9', '90123', '2022-01-09', 'VWX567', 'IN'),
-  (10, 'Visitor 10', '01234', '2022-01-10', 'YZA890', 'OUT');
+  (3, 'Visitor 3', '34567', 'DEF789', 'IN'),
+  (4, 'Visitor 4', '45678', 'GHI012', 'OUT'),
+  (5, 'Visitor 5', '56789', 'JKL345', 'IN'),
+  (6, 'Visitor 6', '67890', 'MNO678', 'OUT'),
+  (7, 'Visitor 7', '78901', 'PQR901', 'IN'),
+  (8, 'Visitor 8', '89012', 'STU234', 'OUT'),
+  (9, 'Visitor 9', '90123', 'VWX567', 'IN'),
+  (10, 'Visitor 10', '01234', 'YZA890', 'OUT');
 
 INSERT INTO vehicles (vehicle_no, reg_no, cnic_no) VALUES
   ('ABC123', 1, '12345678901234567890'),
