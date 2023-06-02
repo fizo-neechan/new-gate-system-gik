@@ -40,4 +40,35 @@ router.get("/:key", (req, res, next) => {
 })
 });
 
+router.get("/:designation/:id", (req, res, next) => {
+    const designation = req.params.designation.toLowerCase();
+    const id = req.params.id;
+
+    if(designation === 'vehicle'){
+        db.query("select * from vehicles where vehicle_no=$1;", [id], (err, result) => {
+            if(err){
+                console.log(err);
+            } else {
+                return res.send(result.rows);
+            }
+        });
+    } else if (designation === 'visitor') {
+        db.query("select name, cnic as nic, 'Visitor' as faculty_dept from visitors_log where cnic=$1 limit 1;", [id], (err, result) => {
+            if(err) {
+                console.log(err);
+            } else {
+                return res.send(result.rows);
+            }
+        });
+    } else {
+        db.query("select * from info where regno=$1", [id], (err, result) => {
+            if(err){
+                console.log(err);
+            } else {
+                return res.send(result.rows);
+            }
+        });
+    }
+});
+
 module.exports = router;
