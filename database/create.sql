@@ -18,7 +18,7 @@ CREATE TABLE info (
 
 CREATE TABLE dailylog (
   RegNo integer NOT NULL,
-  "Time" date NOT NULL default now(),
+  "Time" timestamp NOT NULL default now(),
   Vehicle_no character varying(10),
   flag character varying(3) NOT NULL,
 	
