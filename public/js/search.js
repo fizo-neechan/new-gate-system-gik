@@ -16,6 +16,9 @@ function makeSearchResult(img, name, designation, id){
         </ul>
       </div>
     `
+    card.addEventListener('click', async(e) => {
+      displayDetailsModal(designation, id);
+    })
 
     return card;
 }
@@ -31,7 +34,6 @@ function renderSearchItem(img, name, designation, id){
 
 const searchBar = document.getElementsByClassName("search-bar-main")[0];
 console.log(searchBar);
-console.log("here");
 searchBar.addEventListener("keyup", async(e) => {
     const key = e.target.value;
     document.getElementById('search__container').innerHTML = "";
@@ -47,7 +49,7 @@ searchBar.addEventListener("keyup", async(e) => {
         const data = await resp.json();
         console.log(data);
         data.forEach(i => {
-            renderSearchItem(i.id, i.id, i.name, i.designation);
+            renderSearchItem(i.id, i.name, i.designation, i.id);
         });
     } catch (err) {
         console.log(err);
