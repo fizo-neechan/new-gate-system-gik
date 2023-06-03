@@ -16,6 +16,13 @@ CREATE TABLE info (
   Vehicle_no character varying(10) NOT NULL
 );
 
+ALTER TABLE info
+ALTER COLUMN Vehicle_no DROP NOT NULL;
+
+ALTER TABLE info
+ALTER COLUMN PictureLink SET DEFAULT 'default.png';
+
+
 CREATE TABLE dailylog (
   RegNo integer NOT NULL,
   "Time" timestamp NOT NULL default now(),
