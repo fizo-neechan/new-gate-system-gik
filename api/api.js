@@ -5,12 +5,14 @@ const morgan = require('morgan');
 
 // const productRoutes = require('./routes/products');
 const dailyLogRoute = require('./routes/dailylog');
+const visitorLogRoute = require('./routes/visitorlog');
 const searchRoute = require('./routes/search');
 
 const db = require("./database");
 
 router.use(morgan('dev'));
 router.use('/dailyLog', dailyLogRoute);
+router.use('/visitorLog', visitorLogRoute);
 router.use('/search', searchRoute);
 router.use(bodyParser.urlencoded({ extended: true }));
 
