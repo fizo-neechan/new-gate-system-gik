@@ -452,21 +452,22 @@ ul {
 }
 
 .modal__content {
-  position: absolute;
+  position: relative;
   border-radius: 20px;
-  top: 50%;
-  left: 50%;
+  top: 5%;
   width: 30%;
-  height: 90%;
-  /* margin-left: auto; */
-  /* margin: auto; */
-  transform: translate(-50%, -50%);
+  max-height: 90%;
+  overflow-y: auto;
+  margin: auto;
+  /* transform: translate(-50%, -50%); */
   background-color: #fff;
   padding: 20px;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* align-items: center; */
+  /* -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%); */
 }
 .modal__content h2{
   font-size: 40px;
