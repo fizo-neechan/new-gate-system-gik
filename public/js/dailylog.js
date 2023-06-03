@@ -4,7 +4,6 @@ function makeRow(id, name, time, flag){
     const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'};
     const formattedDateTime = date.toLocaleString('en-US', options);
 
-    console.log(formattedDateTime);
 
     const row = document.createElement("ul");
     row.classList.add("log__row");
@@ -26,7 +25,6 @@ const dailyLogBtn = document.getElementById("daily-log-btn");
 console.log(dailyLogBtn.innerHTML);
 dailyLogBtn.addEventListener("click", async () => {
     const table = document.querySelector("#DailyLog .log__table");
-    console.log("here");
     try {
         const resp = await fetch(`/api/dailylog`, {
           method: "GET",
@@ -46,3 +44,24 @@ dailyLogBtn.addEventListener("click", async () => {
 });
 
 dailyLogBtn.click();
+
+const visitorLogBtn = document.getElementById("visitor-log-btn");
+visitorLogBtn.addEventListener("click", async () => {
+  const table = document.querySelector("#VisitorLog .log__table");
+  try {
+      const resp = await fetch(`/api/visitorlog`, {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+
+      const data = await resp.json();
+      console.log(data);
+      data.forEach(i => {
+          table.appendChild(makeRow(i.id, i.name, i.time, i.flag));
+      });
+  } catch (err) {
+      console.log(err);
+  }
+});

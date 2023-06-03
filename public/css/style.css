@@ -582,7 +582,7 @@ ul {
 }
 
 .adduser-panel input[type="text"]:invalid, input[type="number"]:invalid, input[type="date"]:invalid {
-  border-color: red;
+  border-color: rgb(147, 24, 24);
 }
 .adduser-panel input[type="text"]:valid, input[type="number"]:valid, input[type="date"]:valid {
   border-color: green;
