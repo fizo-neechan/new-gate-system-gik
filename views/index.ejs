@@ -3,6 +3,7 @@
 <body>
     <%- include('nav') %>
 
+
     <main>
         <div class="tab-content" id="DailyLog">
             <section class="log">
@@ -20,79 +21,62 @@
         </div>
 <div class="tab-content" id="AddUser">
 
-    <div class="container">
-        <ul class="tabs">
-          <li class="active" id="profileTab" data-content="profile">Add User</li>
-        </ul>
-        <div class="content">
-          <div class="profile visible">
-            <h3>Add Information</h3>
-            <form action="" class="modifyInfo">
-              <table>
-                <tr>
-                  <td class="title">Name :</td>
-                  <td><input type="text" name="name" /></td>
-                </tr>
-                <tr>
-                  <td class="title">Registration Number :</td>
-                  <td><input type="text" name="lastName" /></td>
-                </tr>
-                <tr>
-                  <td class="title">Father Name :</td>
-                  <td><input type="date" name="dateBirth" /></td>
-                </tr>
-                <tr>
-                  <td class="title">CNIC :</td>
-                  <td><input type="text" name="city" /></td>
-                </tr>
-                <tr>
-                  <td class="title">Designation :</td>
-                  <td><input type="text" name="phone" /></td>
-                </tr>
-                <tr>
-                  <td class="title">Date of Birth :</td>
-                  <td><input type="email" name="email" /></td>
-                </tr>
-                <tr>
-                  <td class="title">Permanent Address :</td>
-                  <td><input type="email" name="email" /></td>
-                </tr>
-                <tr>
-                  <td class="title">Contact Number :</td>
-                  <td><input type="email" name="email" /></td>
-                </tr>
-                <tr>
-                  <td class="title">Emergency Contact Name :</td>
-                  <td><input type="email" name="email" /></td>
-                </tr>
-                <tr>
-                  <td class="title">Emergency Contact Number :</td>
-                  <td><input type="email" name="email" /></td>
-                </tr>
-                <tr>
-                  <td class="title">Identification Mark :</td>
-                  <td><input type="email" name="email" /></td>
-                </tr>
-                <tr>
-                  <td class="title">Blood Group :</td>
-                  <td><input type="email" name="email" /></td>
-                </tr>
-                <tr>
-                  <td class="title">Vehicle Number :</td>
-                  <td><input type="email" name="email" /></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td>
-                    <input type="submit" value="Add" class="primary" />
-                    <input type="reset" value="Cancel" class="secondary" />
-                  </td>
-                </tr>
-              </table>
-            </form>
-          </div>
-        </div>
+  <div class="adduser-panel">
+    <form class = "adduser" method="POST" action="/api/addnewuser" id="adduser">
+      <div class="upper">
+        <h2>Enter new user</h2>
+        <input type="image" name="profile-pic" id="adduser-pic" src="assets/imgs/giki-logo-updated.png" width="200">
       </div>
+      <div class = "modal-flex">
+        <input type="text" name="name" placeholder="Name" pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed" required autofocus> 
+      </div>
+      <div class = "modal-flex">
+        <input type="text" name="fathername" placeholder="Father's Name"  pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed" required>
+      </div>
+      <div class = "modal-flex">
+        <input type="text" name="regno" placeholder="Registration Number" title="Only 7 digits allowed" pattern="\d{7}" required>
+      </div>
+      <div class = "modal-flex">
+        <input type="text" name="cnic" placeholder="CNIC" pattern="\d{13}" title="only 13 digits allowed" required>
+      </div>
+      <div class = "modal-flex">
+        <input type="text" name="faculty_dept" placeholder="Faculty/Dept" pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed" required>
+      </div>
+      <div class = "modal-flex">
+        <input type="text" name="designation" placeholder="Designation" pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed" required>
+      </div>
+      <div class = "modal-flex">
+        <label for="dob">Date of birth:</label>
+        <input type="date" name="dob" required>
+      </div>
+      <div class = "modal-flex">
+        <input type="text" name="contactno" placeholder="Contact Number" pattern="\d{11}" title="Only 11 digits allowed" required>
+      </div>
+      <div class = "modal-flex">
+        <input type="text" name="emergencycontactname" placeholder="Emergency Contact Name" pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed" required>
+      </div>
+      <div class = "modal-flex">
+        <input type="text" name="emergencycontactnumber" placeholder="Emergency Contact Number" pattern="\d{11}" title="Only 11 digits allowed" required>
+      </div>
+      <div class = "modal-flex">
+        <input type="text" name="identificationmark" placeholder="Identification Mark" pattern="[A-Za-z\s\d]+" title="Only letters, numbers and spaces are allowed" required>
+      </div>
+      <div class = "modal-flex">
+        <input type="text" name="permanentaddress" placeholder="Permanent Address" required>
+      </div>
+      <div class = "modal-flex">
+        <input type="text" name="bloodgroup" placeholder="Blood Group" required pattern="[Oo][+-]|[Aa][+-]|AB|ab[+-]|[Bb][+-]" title="Only blood types allowed eg:AB+ or O-">
+      </div>
+      <div class = "modal-flex">
+        <input type="text" name="vehicle_no" placeholder="Vehicle Number" pattern="[A-Za-z]{3}[\d]{3}" title="Only Number plate allowed eg:AAA001 or ZZZ999">
+      </div>
+      <div class="modal-flex">
+        <button class="adduser-submitbtn" onclick="if(validateForm()){console.log('heyyyy')}">
+          Add new user
+        </button>
+      </div>
+    </form>
+  </div>
 
 </div>
 
