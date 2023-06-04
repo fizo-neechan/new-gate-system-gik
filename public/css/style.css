@@ -33,6 +33,14 @@ body {
   font-family: Open Sans, sans-serif;
   font-weight: 400;
   line-height: 1.6;
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-rows: 20vh 1fr;
+  grid-template-columns: 20vw 80vw;
+  grid-template-areas:
+    "side head"
+    "side main";
   /* overflow-x: hidden; */
 }
 
@@ -77,13 +85,15 @@ ul {
 }
 
 .side-panel {
+  grid-area: side;
   width: 250px;
   height: 100%;
   background: #212a32;
-  position: fixed;
+  /* position: fixed; */
   z-index: 1000;
   box-shadow: inset -15px 0px 20px -15px #1d252c;
 }
+
 .side-panel header .title {
   text-align: center;
   padding: 25px 0px 5px;
@@ -121,10 +131,11 @@ ul {
 }
 
 .head-panel {
-  width: calc(100% - 250px);
-  margin: 0px 0px 0px 250px;
+  /* width: calc(100% - 250px); */
+  /* margin: 0px 0px 0px 250px; */
   background: #f4f6f6;
-  position: absolute;
+  grid-area: head;
+  /* position: fixed; */
 }
 .head-panel header .top {
   height: 55px;
@@ -410,8 +421,12 @@ ul {
 
 /* Go from zero to full opacity */
 @keyframes fadeEffect {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 #search__container {
@@ -435,7 +450,6 @@ ul {
 .search-bar-main input[type="text"]:focus {
   border: 1px solid #5ba2e4;
 }
-
 
 /* modal wrapper container css */
 
@@ -469,12 +483,12 @@ ul {
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%); */
 }
-.modal__content h2{
+.modal__content h2 {
   font-size: 40px;
   font-weight: 400;
   padding: 2rem;
 }
-.modal__content img{
+.modal__content img {
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -482,26 +496,25 @@ ul {
 .modal.show {
   display: block;
 }
-.modal-flex{
+.modal-flex {
   display: flex;
   justify-content: space-around;
   align-items: center;
   font-size: 18px;
   padding: 0.8rem;
 }
-.left{
+.left {
   text-align: left;
   flex: 1;
   /* color: #172a60; */
-
 }
-.right{
+.right {
   text-align: right;
   flex: 1;
   color: #4e4e4ee3;
 }
 
-.modal-btn{
+.modal-btn {
   background-color: #2a3845;
   color: white;
   width: 25%;
@@ -512,18 +525,17 @@ ul {
   font-size: 20px;
   cursor: pointer;
 }
-.modal-btn:hover{
+.modal-btn:hover {
   background-color: #1d252c;
 }
 
-.upper{
+.upper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #212a32;
 }
-
 
 .nav-search-btn {
   font-style: inherit;
@@ -564,7 +576,9 @@ ul {
   margin: 1rem auto;
 }
 
-.adduser-panel input[type="text"], input[type="number"], input[type="date"] {
+.adduser-panel input[type="text"],
+input[type="number"],
+input[type="date"] {
   border-radius: 50px;
   border: 1px solid #eeeeee;
   font-size: 16px;
@@ -581,10 +595,14 @@ ul {
   -o-transition: 0.3s;
 }
 
-.adduser-panel input[type="text"]:invalid, input[type="number"]:invalid, input[type="date"]:invalid {
+.adduser-panel input[type="text"]:invalid,
+input[type="number"]:invalid,
+input[type="date"]:invalid {
   border-color: rgb(147, 24, 24);
 }
-.adduser-panel input[type="text"]:valid, input[type="number"]:valid, input[type="date"]:valid {
+.adduser-panel input[type="text"]:valid,
+input[type="number"]:valid,
+input[type="date"]:valid {
   border-color: green;
 }
 
@@ -596,7 +614,7 @@ ul {
   margin-bottom: 2rem;
 }
 
-.adduser-submitbtn{
+.adduser-submitbtn {
   background-color: #2a3845;
   color: white;
   width: 30%;
@@ -608,6 +626,10 @@ ul {
   cursor: pointer;
 }
 
-.adduser-submitbtn:hover{
+.adduser-submitbtn:hover {
   background-color: #3f4854;
+}
+
+.out {
+  background-color: red;
 }

@@ -1,82 +1,112 @@
 <section class="side-panel">
-    <header>
-      <div class="title">
-        <span>Gate System</span>
+  <header>
+    <div class="title">
+      <span>Gate System</span>
+    </div>
+  </header>
+  <nav>
+    <ul>
+      <li>
+        <a
+          href="#"
+          class="nav-tablinks"
+          title="DailyLog"
+          onclick="openTab(event, 'DailyLog');"
+          id="daily-log-btn"
+        >
+          <span>Daily Log</span>
+          <i class="fa fa-compass"></i>
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          class="nav-tablinks"
+          title="UserInfo"
+          onclick="openTab(event, 'UserInfo');"
+        >
+          <span>User Info</span>
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          class="nav-tablinks"
+          id="visitor-log-btn"
+          title="VisitorLog"
+          onclick="openTab(event, 'VisitorLog');"
+        >
+          <span>Visitors</span>
+          <i class="fa fa-tags"></i>
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          class="nav-tablinks"
+          title="PrintCard"
+          onclick="openTab(event, 'PrintCard');"
+        >
+          <span>Print Card</span>
+          <i class="fa fa-sliders"></i>
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          class="nav-tablinks"
+          title="AddUser"
+          onclick="openTab(event, 'AddUser');"
+        >
+          <span>Add user</span>
+          <i class="fa fa-envelope"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</section>
+<section class="head-panel">
+  <header>
+    <div class="top tools">
+      <div class="container">
+        <div class="button-box">
+          <button id="toggle-menu">
+            <svg
+              viewBox="0 0 53 53"
+              x="0px"
+              xmlns="http://www.w3.org/2000/svg"
+              y="0px"
+            >
+              <path
+                d="M2,13.5h49c1.104,0,2-0.896,2-2s-0.896-2-2-2H2c-1.104,0-2,0.896-2,2S0.896,13.5,2,13.5z"
+              ></path>
+              <path
+                d="M2,28.5h49c1.104,0,2-0.896,2-2s-0.896-2-2-2H2c-1.104,0-2,0.896-2,2S0.896,28.5,2,28.5z"
+              ></path>
+              <path
+                d="M2,43.5h49c1.104,0,2-0.896,2-2s-0.896-2-2-2H2c-1.104,0-2,0.896-2,2S0.896,43.5,2,43.5z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <div class="search-bar">
+          <button class="nav-search-btn" onclick="openTab(event, 'UserInfo')">
+            Search
+          </button>
+        </div>
       </div>
-    </header>
-    <nav>
-      <ul>
-        <li>
-          <a href="#" class="nav-tablinks" title="DailyLog" onclick="openTab(event, 'DailyLog');" id="daily-log-btn">
-            <span>Daily Log</span>
-            <i class="fa fa-compass"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-tablinks" title="UserInfo" onclick="openTab(event, 'UserInfo');">
-            <span>User Info</span>
-            <i class="fa fa-list"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-tablinks" id="visitor-log-btn" title="VisitorLog" onclick="openTab(event, 'VisitorLog');">
-            <span>Visitors</span>
-            <i class="fa fa-tags"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-tablinks" title="PrintCard" onclick="openTab(event, 'PrintCard');">
-            <span>Print Card</span>
-            <i class="fa fa-sliders"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-tablinks" title="AddUser" onclick="openTab(event, 'AddUser');">
-            <span>Add user</span>
-            <i class="fa fa-envelope"></i>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </section>
-  <section class="head-panel">
-    <header>
-      <div class="top tools">
-        <div class="container">
-          <div class="button-box">
-            <button id="toggle-menu">
-              <svg
-                viewBox="0 0 53 53"
-                x="0px"
-                xmlns="http://www.w3.org/2000/svg"
-                y="0px"
-              >
-                <path
-                  d="M2,13.5h49c1.104,0,2-0.896,2-2s-0.896-2-2-2H2c-1.104,0-2,0.896-2,2S0.896,13.5,2,13.5z"
-                ></path>
-                <path
-                  d="M2,28.5h49c1.104,0,2-0.896,2-2s-0.896-2-2-2H2c-1.104,0-2,0.896-2,2S0.896,28.5,2,28.5z"
-                ></path>
-                <path
-                  d="M2,43.5h49c1.104,0,2-0.896,2-2s-0.896-2-2-2H2c-1.104,0-2,0.896-2,2S0.896,43.5,2,43.5z"
-                ></path>
-              </svg>
-            </button>
-          </div>
-          <div class="search-bar">
-            <button class="nav-search-btn" onclick="openTab(event, 'UserInfo')">Search</button>
+    </div>
+    <div class="bottom notification">
+      <div class="container">
+        <div class="profile-wrap">
+          <div class="avatar"></div>
+          <div class="user-info">
+            <div class="name"><%= locals.username %></div>
+            <div class="rank">admin</div>
           </div>
         </div>
       </div>
-      <div class="bottom notification">
-        <div class="container">
-          <div class="profile-wrap">
-            <div class="avatar"></div>
-            <div class="user-info">
-              <div class="name">Czvpka</div>
-              <div class="rank">admin</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
+    </div>
+  </header>
+</section>

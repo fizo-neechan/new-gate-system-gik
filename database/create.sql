@@ -13,7 +13,8 @@ CREATE TABLE info (
   EmergencyContactNumber character varying(50) NOT NULL,
   IdentificationMark character varying(100) NOT NULL,
   BloodGroup character varying(50) NOT NULL,
-  Vehicle_no character varying(10) NOT NULL
+  Vehicle_no character varying(10) NOT NULL,
+  Status varchar(3) not null,
 );
 
 ALTER TABLE info
