@@ -95,6 +95,13 @@ function makeDetailsModal(details) {
         </div>
         <div class = "right">
           <p>${details.status}</p>
+          ${
+            details.status
+              ? `<input data-reg=${details.regno} class="cbx hidden" type="checkbox" id="user" />
+                  <label class="lbl" for="user"></label>`
+              : ""
+          }
+          
         </div>
       </div>
       ${details.regno ? `<button class="edit">Edit</button>` : ""}
@@ -139,6 +146,30 @@ async function displayDetailsModal(designation, id) {
         editBtn.addEventListener("click", (event) => {
           event.preventDefault();
         });
+
+        const logToggle = document.getElementById("user");
+
+        logToggle.addEventListener("change", async function (event) {
+          event.preventDefault();
+
+          // try {
+          //   const regNo = this.dataset.reg;
+          //   const status = this.checked ? "OUT" : "IN";
+
+          //   const respose = await fetch(``, {
+          //     method: "PUT",
+          //     headers: { "Content-Type": "application/json" },
+          //     body: JSON.stringify({
+          //       regNo,
+          //       status,
+          //     }),
+          //   });
+          // } catch (err) {
+          //   console.log(err);
+          // }
+        });
+        if (logToggle) {
+        }
       });
     }
   } catch (err) {
