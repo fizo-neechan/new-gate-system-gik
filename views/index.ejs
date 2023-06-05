@@ -8,21 +8,19 @@
         <div class="tab-content" id="DailyLog">
             <section class="log">
                 <div class="log__table">
-                <ul class="log__row--heading">
-                    <li class="log__heading">RegNo</li>
-                    <li class="log__heading">Name</li>
-                    <li class="log__heading">Time</li>
-                    <li class="log__heading">Status</li>
-                </ul>
-
-              </table>
+                  <ul class="log__row--heading">
+                      <li class="log__heading">RegNo</li>
+                      <li class="log__heading">Name</li>
+                      <li class="log__heading">Time</li>
+                      <li class="log__heading">Status</li>
+                  </ul>
                 </div>
             </section>
         </div>
 <div class="tab-content" id="AddUser">
 
   <div class="adduser-panel">
-    <form class = "adduser" method="POST" action="/api/addnewuser" id="adduser">
+    <form class = "adduser" action="/" id="adduser">
       <div class="upper">
         <h2>Enter new user</h2>
         <input type="image" name="profile-pic" id="adduser-pic" src="assets/imgs/giki-logo-updated.png" width="200">
@@ -71,7 +69,7 @@
         <input type="text" name="vehicle_no" placeholder="Vehicle Number" pattern="[A-Za-z]{3}[\d]{3}" title="Only Number plate allowed eg:AAA001 or ZZZ999">
       </div>
       <div class="modal-flex">
-        <button class="adduser-submitbtn" onclick="if(validateForm()){console.log('heyyyy')}">
+        <button type="submit" class="adduser-submitbtn">
           Add new user
         </button>
       </div>
@@ -104,6 +102,13 @@
 </div>
 </main>
 </section>
+
+
+<div id="error">
+  <div id="error__div">
+    <button id="error__accept">Okay</button>
+  </div>
+</div>
 
 </body>
 </html>

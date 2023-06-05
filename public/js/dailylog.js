@@ -42,8 +42,13 @@ dailyLogBtn.addEventListener("click", async () => {
     });
 
     const data = await resp.json();
+    const users = table.querySelectorAll(":scope > ul");
+    for (let i = 1; i < users.length; i++) {
+      const child = users[i];
+      table.removeChild(child);
+    }
+
     console.log(data);
-    table.innerHTML = "";
     data.forEach((i) => {
       table.appendChild(makeRow(i.id, i.name, i.time, i.flag));
     });
@@ -66,7 +71,12 @@ visitorLogBtn.addEventListener("click", async () => {
     });
 
     const data = await resp.json();
-    table.innerHTML = "";
+    const users = table.querySelectorAll(":scope > ul");
+    for (let i = 1; i < users.length; i++) {
+      const child = users[i];
+      table.removeChild(child);
+    }
+
     console.log(data);
     data.forEach((i) => {
       table.appendChild(makeRow(i.id, i.name, i.time, i.flag));

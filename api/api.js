@@ -14,6 +14,7 @@ const searchRoute = require("./routes/searchRoutes");
 const loginRoute = require("./routes/loginRoutes");
 
 router.use(morgan("dev"));
+router.use(express.json());
 router.use(cookieParser());
 router.use("/dailyLog", dailyLogRoute);
 router.use("/visitorLog", visitorLogRoute);
@@ -21,39 +22,41 @@ router.use("/search", searchRoute);
 router.use("/login", loginRoute);
 router.use(bodyParser.urlencoded({ extended: true }));
 
-router.use((req, res, next) => {
-  const error = new Error("Not found");
-  error.status = 404;
-  next(error);
-});
+// router.use((req, res, next) => {
+//   const error = new Error("Not found");
+//   error.status = 404;
+//   next(error);
+// });
 
-router.use((error, req, res, next) => {
-  res.status(error.status || 500);
-  res.json({
-    error: {
-      message: error.message,
-    },
-  });
-});
+// router.use((error, req, res, next) => {
+//   res.status(error.status || 500);
+//   res.json({
+//     error: {
+//       message: error.message,
+//     },
+//   });
+// });
 
 // Routes which should handle requests
 router.get("/", (req, res, next) => {
   res.status(200).redirect("/");
 });
 
-router.post("/addnewuser", auth, async (req, res, next) => {
-  const data = req.body;
+router.post("/add_new_user", auth, async (req, res, next) => {
+  const { data } = req.body;
+
   if (!data.vehicle_no) {
     data.vehicle_no = "NULL";
+    data.status = "IN";
   }
 
   const query = `
       INSERT INTO info (
         RegNo, Name, FatherName, NIC, Designation, Faculty_Dept,
         DOB, PermanentAddress, Contact_number, EmergencyContactName,
-        EmergencyContactNumber, IdentificationMark, BloodGroup, Vehicle_no
+        EmergencyContactNumber, IdentificationMark, BloodGroup, Vehicle_no, status
       ) VALUES (
-        $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14
+        $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15
       )`;
 
   const values = [
@@ -71,6 +74,7 @@ router.post("/addnewuser", auth, async (req, res, next) => {
     data.identificationmark,
     data.bloodgroup,
     data.vehicle_no,
+    data.status,
   ];
 
   try {
@@ -80,6 +84,10 @@ router.post("/addnewuser", auth, async (req, res, next) => {
     console.log("Data inserted successfully");
     res.status(200).redirect("/");
   } catch (err) {
+    if (err.code === "23505")
+      return res
+        .status(403)
+        .send({ error: "Registration number already exists" });
     console.error("Error inserting data", err);
     res.status(500).redirect("/");
   }

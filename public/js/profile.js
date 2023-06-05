@@ -1,9 +1,8 @@
-
 function makeDetailsModal(details) {
-    const profileModal = document.createElement("div");
-    profileModal.classList.add("modal");
+  const profileModal = document.createElement("div");
+  profileModal.classList.add("modal");
 
-    profileModal.innerHTML = `
+  profileModal.innerHTML = `
     <div class = "modal__content">
       <div class="upper">
         <h2>Details</h2>
@@ -90,47 +89,59 @@ function makeDetailsModal(details) {
           <p>${details.bloodgroup}</p>
         </div>
       </div>
+      <div class = "modal-flex">
+        <div class = "left">
+          <p>Status:</p>
+        </div>
+        <div class = "right">
+          <p>${details.status}</p>
+        </div>
+      </div>
+      ${details.regno ? `<button class="edit">Edit</button>` : ""}
     </div>
   `;
 
-    const modalBtn = document.createElement("button");
-    modalBtn.classList.add("modal-btn");
-    modalBtn.innerHTML = "Okay";
-    modalBtn.onclick = () => {
-        profileModal.remove();
-    }
+  const modalBtn = document.createElement("button");
+  modalBtn.classList.add("modal-btn");
+  modalBtn.innerHTML = "Okay";
+  modalBtn.onclick = () => {
+    profileModal.remove();
+  };
 
-    const modalContent = profileModal.getElementsByClassName('modal__content')[0];
-    modalContent.appendChild(modalBtn);
+  const modalContent = profileModal.getElementsByClassName("modal__content")[0];
+  modalContent.appendChild(modalBtn);
 
   return profileModal;
 }
 
-async function displayDetailsModal(designation, id){
+async function displayDetailsModal(designation, id) {
+  try {
+    console.log(`/api/search/${designation}/${id}`);
+    const resp = await fetch(`/api/search/${designation}/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
 
-    try {
-        console.log(`/api/search/${designation}/${id}`);
-        const resp = await fetch(`/api/search/${designation}/${id}`, {
-          method: "GET",
-          headers: {
-            "Content-type": "application/json",
-          },
+    const data = await resp.json();
+    if (!data) {
+      console.log("error len::0");
+      return;
+    } else {
+      console.log(data);
+      data.forEach((i) => {
+        const profileModal = makeDetailsModal(i);
+        profileModal.classList.add("show");
+        document.body.appendChild(profileModal);
+
+        const editBtn = document.querySelector(".edit");
+        editBtn.addEventListener("click", (event) => {
+          event.preventDefault();
         });
-
-        const data = await resp.json();
-        if(!data){
-            console.log("error len::0");
-            return;
-        } else {
-            console.log(data);
-            data.forEach(i => {
-                const profileModal = makeDetailsModal(i);
-                profileModal.classList.add("show");
-                document.body.appendChild(profileModal);
-            });
-        }
-    } catch (err) {
-        console.log(err);
+      });
     }
-
+  } catch (err) {
+    console.log(err);
+  }
 }
