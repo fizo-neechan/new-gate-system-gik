@@ -39,15 +39,9 @@ router.post("/", auth, (req, res, next) => {
 });
 
 router.put("/", auth, async (req, res, next) => {
-  const { regNo } = req.body;
+  const { regNo, status } = req.body;
   try {
-    if (!res.locals.username) throw new Error("Not Authorized");
-    let { rows: user } = await db.query(
-      `select * from info where regNo = ${regNo}`
-    );
-    user = user[0];
-
-    if (user.status === "IN") {
+    if (status === "IN") {
       await db.query(`update info set status = 'OUT' where regNo = ${regNo};`);
       await db.query(
         `INSERT INTO dailylog (RegNo, "Time", Vehicle_no, flag) VALUES (${regNo}, NOW(), NULL, 'OUT');`

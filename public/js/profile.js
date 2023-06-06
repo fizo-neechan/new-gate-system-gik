@@ -97,7 +97,10 @@ function makeDetailsModal(details) {
           <p>${details.status}</p>
           ${
             details.status
-              ? `<input data-reg=${details.regno} class="cbx hidden" type="checkbox" id="user" />
+              ? details.status === "OUT"
+                ? `<input data-reg=${details.regno} class="cbx hidden" type="checkbox" checked id="user" /> 
+                  <label class="lbl" for="user"></label>`
+                : `<input data-reg=${details.regno} class="cbx hidden" type="checkbox" id="user" /> 
                   <label class="lbl" for="user"></label>`
               : ""
           }
@@ -151,25 +154,28 @@ async function displayDetailsModal(designation, id) {
 
         logToggle.addEventListener("change", async function (event) {
           event.preventDefault();
+          console.log(this.checked);
 
-          // try {
-          //   const regNo = this.dataset.reg;
-          //   const status = this.checked ? "OUT" : "IN";
+          try {
+            const regNo = this.dataset.reg;
+            const status = this.checked ? "OUT" : "IN";
 
-          //   const respose = await fetch(``, {
-          //     method: "PUT",
-          //     headers: { "Content-Type": "application/json" },
-          //     body: JSON.stringify({
-          //       regNo,
-          //       status,
-          //     }),
-          //   });
-          // } catch (err) {
-          //   console.log(err);
-          // }
+            const respose = await fetch(`/api/dailylog`, {
+              method: "PUT",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                regNo,
+                status,
+              }),
+            }).then((res) => res.json());
+
+            if (respose.msg) {
+              event.target.closest(".right").children[0].innerHTML = status;
+            }
+          } catch (err) {
+            console.log(err);
+          }
         });
-        if (logToggle) {
-        }
       });
     }
   } catch (err) {
