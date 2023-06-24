@@ -41,7 +41,7 @@ router.post("/", auth, (req, res, next) => {
 router.put("/", auth, async (req, res, next) => {
   const { regNo, status } = req.body;
   try {
-    if (status === "IN") {
+    if (status === "OUT") {
       await db.query(`update info set status = 'OUT' where regNo = ${regNo};`);
       await db.query(
         `INSERT INTO dailylog (RegNo, "Time", Vehicle_no, flag) VALUES (${regNo}, NOW(), NULL, 'OUT');`

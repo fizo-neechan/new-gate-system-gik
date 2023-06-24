@@ -14,7 +14,7 @@ CREATE TABLE info (
   IdentificationMark character varying(100) NOT NULL,
   BloodGroup character varying(50) NOT NULL,
   Vehicle_no character varying(10) NOT NULL,
-  Status varchar(3) not null,
+  Status varchar(3) not null
 );
 
 ALTER TABLE info
@@ -37,6 +37,9 @@ CREATE TABLE dailylog (
 );
 
 CREATE TABLE login (
+  username character varying(50),
+  password character varying(50)
+);CREATE TABLE login (
   username character varying(50),
   password character varying(50)
 );
@@ -69,7 +72,7 @@ CREATE TABLE vehicles (
 	foreign key (reg_no)
 	references info(RegNo)
 	on delete cascade
-)
+);
 -- Alter the login table to change the character limit of the password column
 ALTER TABLE login
   ALTER COLUMN password TYPE character varying(120);
