@@ -41,6 +41,9 @@ CREATE TABLE dailylog (
 CREATE TABLE login (
   username character varying(50),
   password character varying(50)
+);CREATE TABLE login (
+  username character varying(50),
+  password character varying(50)
 );
 
 CREATE TABLE regnobarcode (
@@ -71,7 +74,7 @@ CREATE TABLE vehicles (
 	foreign key (reg_no)
 	references info(RegNo)
 	on delete cascade
-)
+);
 -- Alter the login table to change the character limit of the password column
 ALTER TABLE login
   ALTER COLUMN password TYPE character varying(120);
