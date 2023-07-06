@@ -14,7 +14,7 @@ CREATE TABLE info (
   IdentificationMark character varying(100) NOT NULL,
   BloodGroup character varying(50) NOT NULL,
   Vehicle_no character varying(10) NOT NULL,
-  Status varchar(3) not null,
+  Status varchar(3) not null 
 );
 
 ALTER TABLE info
@@ -23,6 +23,8 @@ ALTER COLUMN Vehicle_no DROP NOT NULL;
 ALTER TABLE info
 ALTER COLUMN PictureLink SET DEFAULT 'default.png';
 
+alter table info
+alter column Status SET default 'OUT';
 
 CREATE TABLE dailylog (
   RegNo integer NOT NULL,

@@ -8,7 +8,7 @@ express.urlencoded({ extended: true });
 express.json();
 
 async function auth(req, res, next) {
-  const token = req.cookies?.gikToken;
+  const token = req.cookies.gikToken;
 
   if (!token) {
     return next();

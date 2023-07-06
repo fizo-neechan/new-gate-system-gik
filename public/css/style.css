@@ -42,7 +42,7 @@ body {
     "side head"
     "side main";
   /* gap: 0; */
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
   position: relative;
 }
 
