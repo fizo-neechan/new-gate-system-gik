@@ -79,7 +79,7 @@ visitorLogBtn.addEventListener("click", async () => {
 
     console.log(data);
     data.forEach((i) => {
-      table.appendChild(makeRow(i.id, i.name, i.time, i.flag));
+      table.appendChild(makeRow(i.id, i.name, i.Time, i.flag));
     });
   } catch (err) {
     console.log(err);

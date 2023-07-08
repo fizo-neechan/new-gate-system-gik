@@ -107,7 +107,9 @@ function makeDetailsModal(details) {
           
         </div>
       </div>
-      ${details.regno ? `<button class="edit">Edit</button>` : ""}
+      <div class="modal__btns">
+        ${details.regno ? `<button class="edit modal-btn">Edit</button>` : ""}
+      </div>
     </div>
   `;
 
@@ -118,7 +120,7 @@ function makeDetailsModal(details) {
     profileModal.remove();
   };
 
-  const modalContent = profileModal.getElementsByClassName("modal__content")[0];
+  const modalContent = profileModal.getElementsByClassName("modal__btns")[0];
   modalContent.appendChild(modalBtn);
 
   return profileModal;

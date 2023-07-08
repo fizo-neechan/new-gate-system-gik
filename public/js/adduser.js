@@ -21,7 +21,6 @@ userForm.addEventListener("submit", async (event) => {
       const value = input.value;
       data[name] = value;
     });
-    console.log(data);
 
     try {
       const response = await fetch(`/api/add_new_user`, {
@@ -34,8 +33,6 @@ userForm.addEventListener("submit", async (event) => {
         }),
       }).then((res) => res.json());
 
-      console.log(response);
-
       if (response.error) {
         const errorOverlay = document.getElementById("error");
         const errorContainer = document.getElementById("error__div");
@@ -45,6 +42,8 @@ userForm.addEventListener("submit", async (event) => {
           `<p>${response.error}</p>`
         );
         errorOverlay.style.display = "flex";
+      } else {
+        userForm.reset();
       }
     } catch (err) {
       console.error(err);

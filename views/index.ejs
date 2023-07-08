@@ -23,7 +23,8 @@
     <form class = "adduser" action="/" id="adduser">
       <div class="upper">
         <h2>Enter new user</h2>
-        <input type="image" name="profile-pic" id="adduser-pic" src="assets/imgs/giki-logo-updated.png" width="200">
+        <img id="adduser-pic" src="assets/imgs/giki-logo-updated.png" width="200">
+        <input type="file" name="profile-pic" id="addpic" src="assets/imgs/giki-logo-updated.png" style="margin-top: 20px;">
       </div>
       <div class = "modal-flex">
         <input type="text" name="name" placeholder="Name" pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed" required autofocus> 
@@ -89,6 +90,7 @@
 </div>
 
 <div class="tab-content" id="VisitorLog">
+    <button id="add__visitor">+ Add</button>
     <section class="log">
         <div class="log__table">
           <ul class="log__row--heading">

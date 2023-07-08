@@ -88,7 +88,7 @@ ul {
 
 .side-panel {
   grid-area: side;
-  width: 250px;
+  /* width: 250px; */
   height: 100%;
   background: #212a32;
   /* position: fixed; */
@@ -451,6 +451,7 @@ ul {
   width: 80%;
   height: 5rem;
   padding: 10px 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .search-bar-main input[type="text"]:focus {
@@ -584,6 +585,9 @@ ul {
 
 .adduser-panel input[type="text"],
 input[type="number"],
+input[type="date"],
+.addvisitor-panel input[type="text"],
+input[type="number"],
 input[type="date"] {
   border-radius: 50px;
   border: 1px solid #eeeeee;
@@ -603,13 +607,23 @@ input[type="date"] {
 
 .adduser-panel input[type="text"]:invalid,
 input[type="number"]:invalid,
+input[type="date"]:invalid,
+.addvisitor-panel input[type="text"]:invalid,
+input[type="number"]:invalid,
 input[type="date"]:invalid {
   border-color: rgb(147, 24, 24);
 }
 .adduser-panel input[type="text"]:valid,
 input[type="number"]:valid,
+input[type="date"]:valid,
+.addvisitor-panel input[type="text"]:valid,
+input[type="number"]:valid,
 input[type="date"]:valid {
   border-color: green;
+}
+
+.addvisitor-panel img {
+  margin-bottom: 2rem;
 }
 
 .adduser-panel label {
@@ -664,8 +678,12 @@ input[type="date"]:valid {
   align-items: center;
   border-radius: 5px;
   height: 15rem;
-  width: 25rem;
+  width: max-content;
   background-color: white;
+}
+
+#error__div p {
+  margin: 2rem;
 }
 
 #error__accept {
@@ -677,4 +695,24 @@ input[type="date"]:valid {
   border: none;
   font-size: 20px;
   cursor: pointer;
+}
+
+.modal__btns {
+  display: flex;
+  gap: 1rem;
+}
+
+#add__visitor {
+  padding: 1rem 2rem;
+  background-color: #2a3845;
+  border-color: transparent;
+  color: white;
+  font-size: 2rem;
+  border-radius: 10rem;
+  -webkit-border-radius: 10rem;
+  -moz-border-radius: 10rem;
+  -ms-border-radius: 10rem;
+  -o-border-radius: 10rem;
+  margin: 2rem 2rem 0;
+  left: 0;
 }
