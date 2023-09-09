@@ -41,9 +41,6 @@ CREATE TABLE dailylog (
 CREATE TABLE login (
   username character varying(50),
   password character varying(50)
-);CREATE TABLE login (
-  username character varying(50),
-  password character varying(50)
 );
 
 CREATE TABLE regnobarcode (
