@@ -29,19 +29,19 @@ VALUES
   (10, '0123456789');
 
 -- Dummy data for the visitors_log table
-INSERT INTO visitors_log (ID, Name, Cnic, Vehicle_no, flag)
+INSERT INTO visitors_log (Name, Cnic, Vehicle_no, flag)
 VALUES
-  (1, 'Visitor 1', '12345', 'ABC123', 'IN'),
-  (2, 'Visitor 2', '23456', 'XYZ456', 'OUT'),
+  ('Visitor 1', '12345', 'ABC123', 'IN'),
+  ('Visitor 2', '23456', 'XYZ456', 'OUT'),
   -- Add more entries here...
-  (3, 'Visitor 3', '34567', 'DEF789', 'IN'),
-  (4, 'Visitor 4', '45678', 'GHI012', 'OUT'),
-  (5, 'Visitor 5', '56789', 'JKL345', 'IN'),
-  (6, 'Visitor 6', '67890', 'MNO678', 'OUT'),
-  (7, 'Visitor 7', '78901', 'PQR901', 'IN'),
-  (8, 'Visitor 8', '89012', 'STU234', 'OUT'),
-  (9, 'Visitor 9', '90123', 'VWX567', 'IN'),
-  (10, 'Visitor 10', '01234', 'YZA890', 'OUT');
+  ('Visitor 3', '34567', 'DEF789', 'IN'),
+  ('Visitor 4', '45678', 'GHI012', 'OUT'),
+  ('Visitor 5', '56789', 'JKL345', 'IN'),
+  ('Visitor 6', '67890', 'MNO678', 'OUT'),
+  ('Visitor 7', '78901', 'PQR901', 'IN'),
+  ('Visitor 8', '89012', 'STU234', 'OUT'),
+  ('Visitor 9', '90123', 'VWX567', 'IN'),
+  ('Visitor 10', '01234', 'YZA890', 'OUT');
 
 INSERT INTO vehicles (vehicle_no, reg_no, cnic_no) VALUES
   ('ABC123', 1, '12345678901234567890'),

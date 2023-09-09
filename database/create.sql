@@ -57,7 +57,7 @@ CREATE TABLE regnobarcode (
 );
 
 CREATE TABLE visitors_log (
-  ID integer primary key NOT NULL,
+  ID serial primary key NOT NULL,
   Name character varying(30) NOT NULL,
   Cnic character varying(20) NOT NULL,
   "Time" timestamp NOT NULL default now(),

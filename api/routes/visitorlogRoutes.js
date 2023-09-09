@@ -40,4 +40,26 @@ router.post("/", auth, (req, res, next) => {
   }
 });
 
+router.post("/add", auth, async (req, res, next) => {
+  const { name, cnic, vehicle } = req.body;
+  const pattern = /^[a-zA-Z0-9]+$/;
+  const pattern2 = /^[a-zA-Z]+$/;
+  const pattern3 = /^[0-9]+$/;
+
+  try {
+    if (!res.locals.username) throw new Error("Not Authorized");
+
+    if (!pattern.test(vehicle) && pattern2.test(name) && pattern3.test(cnic))
+      throw new Error("Invalid properties");
+
+    const addedVisitor = await db.query(
+      `insert into visitors_log (Name, Cnic, Vehicle_no, flag) values ('${name}', '${cnic}', '${vehicle}') returning *`
+    );
+
+    res.status(200).send({ success: "visitor added" });
+  } catch (err) {
+    console.error(err);
+  }
+});
+
 module.exports = router;

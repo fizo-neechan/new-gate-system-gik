@@ -2,10 +2,10 @@ const { Pool } = require("pg");
 
 const getDatabaseConn = () => {
   const conn = new Pool({
-    user: "admin",
+    user: "gikiadmin",
     host: "localhost",
-    database: "gatesystem",
-    password: "admin123",
+    database: "gate_system",
+    password: "giki-admin-123",
     port: 5432, // Replace with your PostgreSQL port if different
   });
   return conn;
