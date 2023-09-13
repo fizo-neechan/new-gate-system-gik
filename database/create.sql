@@ -61,7 +61,7 @@ CREATE TABLE visitors_log (
   Name character varying(30) NOT NULL,
   Cnic character varying(20) NOT NULL,
   "Time" timestamp NOT NULL default now(),
-  Vehicle_no character varying(10),
+  Vehicle_no varchar(10),
   flag character varying(3) NOT NULL
 );
 

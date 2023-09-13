@@ -41,7 +41,10 @@ router.post("/", auth, (req, res, next) => {
 });
 
 router.post("/add", auth, async (req, res, next) => {
-  const { name, cnic, vehicle } = req.body;
+  console.log('a');
+  console.log(req.body);
+  const { name, cnic, vehicle_no } = req.body.data;
+
   const pattern = /^[a-zA-Z0-9]+$/;
   const pattern2 = /^[a-zA-Z]+$/;
   const pattern3 = /^[0-9]+$/;
@@ -49,12 +52,23 @@ router.post("/add", auth, async (req, res, next) => {
   try {
     if (!res.locals.username) throw new Error("Not Authorized");
 
-    if (!pattern.test(vehicle) && pattern2.test(name) && pattern3.test(cnic))
+    if (!(pattern2.test(name) && pattern3.test(cnic)))
       throw new Error("Invalid properties");
 
-    const addedVisitor = await db.query(
-      `insert into visitors_log (Name, Cnic, Vehicle_no, flag) values ('${name}', '${cnic}', '${vehicle}') returning *`
-    );
+
+
+      console.log('a');
+
+    if(vehicle_no !== ""){
+      const addedVisitor = await db.query(
+        `insert into visitors_log (Name, Cnic, Vehicle_no, flag) values ('${name}', '${cnic}', '${vehicle_no}', 'IN') returning *`
+      );
+    } else {
+      const addedVisitor = await db.query(
+        `insert into visitors_log (Name, Cnic, Vehicle_no, flag) values ('${name}', '${cnic}', 'NULL', 'IN') returning *`
+      );
+    }
+
 
     res.status(200).send({ success: "visitor added" });
   } catch (err) {

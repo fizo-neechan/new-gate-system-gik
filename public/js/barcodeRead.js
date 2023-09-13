@@ -32,7 +32,7 @@ document.body.addEventListener("keydown",function(e){
             console.log(barcode);
             toggleInout(barcode);
             barcode = "";
-            window.location.reload();
+            dailyLogBtn.click();
         } else {
             console.log(barcode);
         }

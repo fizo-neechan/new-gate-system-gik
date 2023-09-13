@@ -4,7 +4,7 @@ const getDatabaseConn = () => {
   const conn = new Pool({
     user: "gikiadmin",
     host: "localhost",
-    database: "gate_system",
+    database: "gatesystem",
     password: "giki-admin-123",
     port: 5432, // Replace with your PostgreSQL port if different
   });
